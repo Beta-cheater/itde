@@ -5,7 +5,13 @@
 	<body style = 'margin: 0px; overflow: hidden;'>
 		<a-scene embedded arjs = 'debugUIEnabled:false'>
 			<a-marker present = "hiro">
-				<a-box position = "0 0.5 0" material = "color: red;"></a-box>
+				<a-plane position = "0 -1 0" width = "3.5" height = "3.5" rotation = "-75 0 0" color = "#2B303B"></a-plane>
+				<a-torus position = "0 0.5 0" color = "#C61D43"  radius = "0.5"></a-torus>
+				<a-cylinder position = "0 0 0" radius = "0.1" height = "2" color = "#42A104"></a-cylinder>
+				<a-torus-knot position="1 0.5 0" radius="0.5" color="#F58208"></a-torus-knot>
+				<a-cylinder position = "1 0 0" radius = "0.1" height = "2" color = "#F61F0A"></a-cylinder>
+				<a-plane src = "https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/uvgrid/UV_Grid_Sm.jpg" position="0 1 -1" width="2.5" height="1.5"></a-plane>
+				<a-text position="-1 0.5 -1" value="Hello, Doctor House!" color="#33C3F0" width="3" font="Mauryssel_Bold-msdf.json" negate="false" ></a-text>
 			</a-marker>
 			<a-entity camera></a-entity>
 		</a-scene>
