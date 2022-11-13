@@ -2,8 +2,9 @@
 <html>
     <head><title>OBJLoader</title></head>
     <body>
- 
-        <script src="https://unpkg.com/three/build/three.module.js"  type="module"></script>
+        <script src="https://threejs.org/build/three.js" type="module"></script>
+
+       
 
         <script>
 
@@ -25,8 +26,6 @@
             renderer.render(scene, camera);
 
             document.body.appendChild(renderer.domElement);
-            });
-            document.body.appendChild(renderer.domElement);
             const video = document.createElement("video");
             navigator.mediaDevices.getUserMedia({video:true}).then((stream) => {
             video.srcObject = stream;
@@ -37,6 +36,7 @@
             video.style.height = renderer.domElement.height;
             renderer.domElement.style.position = "absolute";
             document.body.appendChild(video);
+               });
         </script>
     </body>
 </html>
