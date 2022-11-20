@@ -3,19 +3,9 @@
     <head><title>OBJLoader</title></head>
     <body>
         <script src="https://threejs.org/build/three.js" type="module"></script>
-
-       
-
-        <script>
-
-           document.addEventListener("DOMContentLoaded", () => {
-            const scene = new THREE.Scene();
-
-            
-
+        const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera();
             camera.position.set(1, 1, 5);
-
             const renderer = new THREE.WebGLRenderer({alpha: true});
             renderer.setSize(500, 500);
             renderer.render(scene, camera);
@@ -26,6 +16,10 @@
             cube.position.set(0, 0, -2);
             cube.rotation.set(0, Math.PI/4, 0);
             scene.add(cube);
+        <script>
+
+           document.addEventListener("DOMContentLoaded", () => {
+            
                
             document.body.appendChild(renderer.domElement);
             const video = document.createElement("video");
