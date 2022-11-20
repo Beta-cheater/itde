@@ -3,8 +3,18 @@
     <head><title>OBJLoader</title></head>
     <body>
         <script src="https://threejs.org/build/three.js" type="module">
-        
         document.addEventListener("DOMContentLoaded", () => {
+            const video = document.createElement("video");
+            
+            navigator.mediaDevices.getUserMedia({video:true}).then((stream) => {
+            video.srcObject = stream;
+            video.play();
+            });
+            video.style.position = "absolute";
+            video.style.width = renderer.domElement.width;
+            video.style.height = renderer.domElement.height;
+            renderer.domElement.style.position = "absolute";
+            document.body.appendChild(video);
             const scene = new THREE.Scene();
             const cube = new THREE.Mesh(geometry, material);
             cube.position.set(0, 0, -2);
