@@ -2,50 +2,49 @@
 <html>
     <head>
         <title>Cube</title>
-        <script src="https://threejs.org/build/three.js"></script>
-	<script type="importmap">
-		{
-		"imports": {
-		"three": "https://unpkg.com/three/build/three.module.js",
-		"GLTFLoader":
-		"https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js"
-		}
-		}
-	</script>
 
     </head>
     <body>
         
+        <script type="importmap">
+            {
+                "imports": {
+                "three": "https://unpkg.com/three/build/three.module.js",
+                "GLTFLoader":"https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js"
+                    }
+            }
+        </script>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image-three.prod.js"></script>
+        <script type="module">
 
-        <script>
         const THREE = window.MINDAR.IMAGE.THREE;
-	import {GLTFLoader} from "GLTFLoader";
-	document.addEventListener("DOMContentLoaded", () => {
-	const start = async() => {
-	const mindarThree = new window.MINDAR.IMAGE.MindARThree({
-	container: document.body,
-	imageTargetSrc: "https://raw.githubusercontent.com/hiukim/"+
-	"mind-ar-js/master/examples/image-tracking/assets/"+
-	"band-example/raccoon.mind",
-	});
-	const {renderer, scene, camera} = mindarThree;
-	const anchor = mindarThree.addAnchor(0);
-	const loader = new GLTFLoader();
-	loader.load("https://raw.githubusercontent.com/hiukim/"+
-	"mind-ar-js/master/examples/image-tracking/assets/"+
-	"band-example/raccoon/scene.gltf", (gltf) => {
-	gltf.scene.scale.set(0.1, 0.1, 0.1);
-	gltf.scene.position.set(0, -0.4, 0);
-	anchor.group.add(gltf.scene);
-	});
-	await mindarThree.start();
-	renderer.setAnimationLoop(() => {
-	renderer.render(scene, camera);
-	});
-	}
-	start();
-	});
+        import {GLTFLoader} from "GLTFLoader";
+        document.addEventListener("DOMContentLoaded", () => {
+        const start = async() => {
+
+        const mindarThree = new window.MINDAR.IMAGE.MindARThree({
+        container: document.body,
+        imageTargetSrc: "https://github.com/hiukim/mind-ar-js/blob/c213f9131dfad03e2c43296d41172c32cd203b38/examples/image-tracking/assets/band-example/raccoon.mind",
+        });
+        const {renderer, scene, camera} = mindarThree;
+        const anchor = mindarThree.addAnchor(0);
+        const loader = new GLTFLoader();
+        loader.load("https://github.com/hiukim/mind-ar-js/blob/c213f9131dfad03e2c43296d41172c32cd203b38/examples/image-tracking/assets/band-example/raccoon/scene.gltf", (gltf) => {
+        gltf.scene.scale.set(0.1, 0.1, 0.1);
+        gltf.scene.position.set(0, -0.4, 0);
+        anchor.group.add(gltf.scene);
+        });
+        await mindarThree.start();
+        renderer.setAnimationLoop(() => {
+        renderer.render(scene, camera);
+        });
+        }
+        start();
+        });
 
         </script>
+
     </body>
 </html>
