@@ -6,8 +6,8 @@
 <body>
 
 <script type="module">
-import {GLTFLoader} from "https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js";
-import * as THREE from "https://unpkg.com/three/build/three.module.js";
+import {GLTFLoader} from "./GLTF.JS";
+import * as THREE from "./main.js";
 
 export const loadGLTF = (path) => {
 return new Promise((resolve, reject) => { const loader = new GLTFLoader(); loader.load(path, (gltf) => {
