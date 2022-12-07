@@ -58,14 +58,16 @@ cssAnchor.group.add(obj);
 const model = await
 tmImage.load("./model.json", "./metadata.json");
 const maxPredictions = model.getTotalClasses();
-document.querySelector("#switch").addEventListener("click", () => {
-mindarThree.switchCamera();
-});
+
 await mindarThree.start();
 renderer.setAnimationLoop(() => {
 cssRenderer.render(cssScene, camera);
 });
 
+  document.querySelector("#switch").addEventListener("click", () => {
+mindarThree.switchCamera();
+});
+  
 let skipCount = 1;
 
 const video = mindarThree.video;
