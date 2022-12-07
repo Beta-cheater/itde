@@ -24,11 +24,19 @@ height: 100%; overflow: hidden }
 background: #0000ff; opacity: 0.6; font-size: 100px;
 display: flex; justify-content: center;
 align-items: center; color: white; }
+#switch {
+position: fixed;
+bottom: 5px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 10;
+}
 </style>
+
 </head>
 <body>
 <div id="ar-div"></div>
-
+<button id="switch">Переключитись на iншу камеру</button>
 <script type="module">
 
 import {CSS3DObject} from "https://unpkg.com/three/examples/jsm/renderers/CSS3DRenderer.js";
@@ -50,7 +58,9 @@ cssAnchor.group.add(obj);
 const model = await
 tmImage.load("./model.json", "./metadata.json");
 const maxPredictions = model.getTotalClasses();
-
+document.querySelector("#switch").addEventListener("click", () => {
+mindarThree.switchCamera();
+});
 await mindarThree.start();
 renderer.setAnimationLoop(() => {
 cssRenderer.render(cssScene, camera);
