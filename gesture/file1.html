@@ -24,13 +24,6 @@ height: 100%; overflow: hidden }
 background: #0000ff; opacity: 0.6; font-size: 100px;
 display: flex; justify-content: center;
 align-items: center; color: white; }
-#switch {
-position: fixed;
-bottom: 5px;
-left: 50%;
-transform: translateX(-50%);
-z-index: 10;
-}
 </style>
 
 </head>
@@ -58,16 +51,12 @@ cssAnchor.group.add(obj);
 const model = await
 tmImage.load("./model.json", "./metadata.json");
 const maxPredictions = model.getTotalClasses();
-mindarThree.switchCamera();
+
 await mindarThree.start();
 renderer.setAnimationLoop(() => {
 cssRenderer.render(cssScene, camera);
 });
 
-//   document.querySelector("#switch").addEventListener("click", () => {
-
-// });
-  
 let skipCount = 1;
 
 const video = mindarThree.video;
